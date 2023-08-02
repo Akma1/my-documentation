@@ -10,6 +10,13 @@ class ReelsView extends GetView<ReelsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('My Documentations'),
+        // Set background color to transparent
+        // backgroundColor: Colors.transparent,
+        // Remove elevation to have no shadow on the app bar
+        elevation: 0,
+      ),
       body: PageView.builder(
           itemCount: controller.lengthVideo.length,
           scrollDirection: Axis.vertical,

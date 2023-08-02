@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:my_documentation/app/routes/app_pages.dart';
 import 'package:my_documentation/app/widgets/bouncy_button.dart';
 
 import '../controllers/home_controller.dart';
@@ -38,6 +39,7 @@ class HomeView extends GetView<HomeController> {
                 BouncyButton(
                   onPressed: () {
                     //
+                    Get.toNamed(Routes.REELS);
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -54,6 +56,33 @@ class HomeView extends GetView<HomeController> {
                           child: Center(
                             child: Text(
                               'Reels',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                BouncyButton(
+                  onPressed: () {
+                    //
+                    Get.toNamed(Routes.BUTTON_3D);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRect(
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                        child: Container(
+                          width: Get.width,
+                          height: 60.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.grey.shade200.withOpacity(0.5),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Button 3D',
                             ),
                           ),
                         ),
