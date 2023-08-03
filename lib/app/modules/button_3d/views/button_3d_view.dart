@@ -1,4 +1,3 @@
-import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -47,123 +46,133 @@ class Button3dView extends GetView<Button3dController> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  BouncyButton(
-                    onPressed: () {
-                      //
-                    },
-                    child: Center(
-                      child: Container(
-                        height: 70,
-                        decoration: BoxDecoration(
-                          color: Colors.blue.shade900,
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: Stack(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(boxShadow: [
-                                BoxShadow(
-                                  color: Colors.blue.shade700,
-                                  offset: const Offset(2, 2),
-                                  spreadRadius: -1,
-                                  blurRadius: 4,
-                                )
-                              ], borderRadius: BorderRadius.circular(100)),
-                              child: const Center(
-                                child: Text(
-                                  'Button',
-                                  style: TextStyle(color: Colors.white),
-                                ),
+                  Center(
+                    child: Container(
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.blue.shade900,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Stack(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(boxShadow: [
+                              BoxShadow(
+                                color: Colors.blue.shade700,
+                                offset: const Offset(2, 2),
+                                spreadRadius: -4,
+                                blurRadius: 1,
+                              )
+                            ], borderRadius: BorderRadius.circular(100)),
+                            child: const Center(
+                              child: Text(
+                                'Button',
+                                style: TextStyle(color: Colors.white),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Colors.blue.shade900,
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: <Color>[
-                                      Colors.blue.shade900,
-                                      Colors.blue.shade900,
-                                    ], // Gradient from https://learnui.design/tools/gradient-generator.html
-                                    tileMode: TileMode.mirror,
+                          ),
+                          Container(
+                            margin: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                color: Colors.blue.shade900,
+                                gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: <Color>[
+                                    Colors.blue.shade900,
+                                    Colors.blue.shade900,
+                                  ], // Gradient from https://learnui.design/tools/gradient-generator.html
+                                  tileMode: TileMode.mirror,
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color:
+                                        const Color.fromARGB(255, 0, 56, 101),
+                                    offset: Offset(-2, -2),
+                                    spreadRadius: 2,
+                                    blurRadius: 1,
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(100)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Button',
+                                    style: TextStyle(color: Colors.white),
                                   ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color:
-                                          const Color.fromARGB(255, 0, 56, 101),
-                                      offset: Offset(-2, -2),
-                                      spreadRadius: 2,
-                                      blurRadius: 1,
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(100)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Button',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Stack(
-                                      children: [
-                                        Container(
-                                          width: 30,
-                                          height: 30,
-                                          decoration: BoxDecoration(
+                                  Obx(
+                                    () => BouncyButton(
+                                      onPressed: controller.pressedToggle,
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            width: 30,
+                                            height: 30,
+                                            decoration: BoxDecoration(
                                               color: Colors.blue.shade900,
                                               borderRadius:
                                                   BorderRadius.circular(30),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Colors.blue.shade200,
-                                                    offset: Offset(-4, -4),
-                                                    spreadRadius: -6,
-                                                    blurRadius: 6)
-                                              ]),
-                                          child: Center(
-                                            child: Icon(
-                                              Icons.play_arrow_rounded,
-                                              color: Colors.white,
+                                              boxShadow: controller
+                                                      .isPressed.isFalse
+                                                  ? [
+                                                      BoxShadow(
+                                                          color: Colors
+                                                              .blue.shade200,
+                                                          offset:
+                                                              Offset(-4, -4),
+                                                          spreadRadius: -6,
+                                                          blurRadius: 6)
+                                                    ]
+                                                  : null,
+                                            ),
+                                            child: const Center(
+                                              child: Icon(
+                                                Icons.play_arrow_rounded,
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Container(
-                                          width: 30,
-                                          height: 30,
-                                          decoration: BoxDecoration(
+                                          Container(
+                                            width: 30,
+                                            height: 30,
+                                            decoration: BoxDecoration(
                                               color: Colors.blue.shade900,
                                               borderRadius:
                                                   BorderRadius.circular(30),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Color.fromARGB(
-                                                        255, 0, 56, 101),
-                                                    offset: Offset(4, 4),
-                                                    spreadRadius: 1,
-                                                    blurRadius: 8)
-                                              ]),
-                                          child: Center(
-                                            child: Icon(
-                                              Icons.play_arrow_rounded,
-                                              color: Colors.white,
+                                              boxShadow: controller
+                                                      .isPressed.isFalse
+                                                  ? const [
+                                                      BoxShadow(
+                                                          color: Color.fromARGB(
+                                                              255, 0, 56, 101),
+                                                          offset: Offset(4, 4),
+                                                          spreadRadius: 1,
+                                                          blurRadius: 8)
+                                                    ]
+                                                  : null,
+                                            ),
+                                            child: const Center(
+                                              child: Icon(
+                                                Icons.play_arrow_rounded,
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
