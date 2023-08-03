@@ -6,6 +6,7 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const REELS = _Paths.REELS;
   static const BUTTON_3D = _Paths.BUTTON_3D;
+  static const DRIFT_DOCUMENTATION = _Paths.DRIFT_DOCUMENTATION;
 }
 
 abstract class _Paths {
@@ -13,4 +14,5 @@ abstract class _Paths {
   static const HOME = '/home';
   static const REELS = '/reels';
   static const BUTTON_3D = '/button-3d';
+  static const DRIFT_DOCUMENTATION = '/drift-documentation';
 }
