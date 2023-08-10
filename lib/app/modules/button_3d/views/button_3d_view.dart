@@ -13,7 +13,7 @@ class Button3dView extends GetView<Button3dController> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Button3dView'),
-        backgroundColor: Colors.blue.shade900,
+        backgroundColor: Colors.grey.shade900,
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
@@ -33,11 +33,11 @@ class Button3dView extends GetView<Button3dController> {
               width: 300,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                  color: Colors.blue.shade900,
+                  color: Colors.grey.shade900,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.shade900.withOpacity(.4),
-                      offset: Offset(10, 10),
+                      offset: const Offset(10, 10),
                       blurRadius: 10,
                     )
                   ],
@@ -50,7 +50,7 @@ class Button3dView extends GetView<Button3dController> {
                     child: Container(
                       height: 70,
                       decoration: BoxDecoration(
-                        color: Colors.blue.shade900,
+                        color: Colors.grey.shade900,
                         borderRadius: BorderRadius.circular(100),
                       ),
                       child: Stack(
@@ -59,7 +59,7 @@ class Button3dView extends GetView<Button3dController> {
                             margin: const EdgeInsets.all(8),
                             decoration: BoxDecoration(boxShadow: [
                               BoxShadow(
-                                color: Colors.blue.shade700,
+                                color: Colors.grey.shade700,
                                 offset: const Offset(2, 2),
                                 spreadRadius: -4,
                                 blurRadius: 1,
@@ -75,20 +75,20 @@ class Button3dView extends GetView<Button3dController> {
                           Container(
                             margin: EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                                color: Colors.blue.shade900,
+                                color: Colors.grey.shade900,
                                 gradient: LinearGradient(
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
                                   colors: <Color>[
-                                    Colors.blue.shade900,
-                                    Colors.blue.shade900,
+                                    Colors.grey.shade900,
+                                    Colors.grey.shade900,
                                   ], // Gradient from https://learnui.design/tools/gradient-generator.html
                                   tileMode: TileMode.mirror,
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color:
-                                        const Color.fromARGB(255, 0, 56, 101),
+                                    color: Colors.black,
+                                    // const Color.fromARGB(255, 0, 56, 101),
                                     offset: Offset(-2, -2),
                                     spreadRadius: 2,
                                     blurRadius: 1,
@@ -115,7 +115,7 @@ class Button3dView extends GetView<Button3dController> {
                                             width: 30,
                                             height: 30,
                                             decoration: BoxDecoration(
-                                              color: Colors.blue.shade900,
+                                              color: Colors.grey.shade900,
                                               borderRadius:
                                                   BorderRadius.circular(30),
                                               boxShadow: controller
@@ -123,7 +123,7 @@ class Button3dView extends GetView<Button3dController> {
                                                   ? [
                                                       BoxShadow(
                                                           color: Colors
-                                                              .blue.shade200,
+                                                              .grey.shade200,
                                                           offset:
                                                               Offset(-4, -4),
                                                           spreadRadius: -6,
@@ -131,35 +131,34 @@ class Button3dView extends GetView<Button3dController> {
                                                     ]
                                                   : null,
                                             ),
-                                            child: const Center(
-                                              child: Icon(
-                                                Icons.play_arrow_rounded,
-                                                color: Colors.white,
-                                              ),
-                                            ),
                                           ),
                                           Container(
                                             width: 30,
                                             height: 30,
                                             decoration: BoxDecoration(
-                                              color: Colors.blue.shade900,
+                                              color: Colors.grey.shade900,
                                               borderRadius:
                                                   BorderRadius.circular(30),
                                               boxShadow: controller
                                                       .isPressed.isFalse
                                                   ? const [
                                                       BoxShadow(
-                                                          color: Color.fromARGB(
-                                                              255, 0, 56, 101),
+                                                          color: Colors.black,
+                                                          // color: Color.fromARGB(
+                                                          //     255, 0, 56, 101),
                                                           offset: Offset(4, 4),
                                                           spreadRadius: 1,
                                                           blurRadius: 8)
                                                     ]
                                                   : null,
                                             ),
-                                            child: const Center(
+                                            child: Center(
                                               child: Icon(
                                                 Icons.play_arrow_rounded,
+                                                size:
+                                                    controller.isPressed.isFalse
+                                                        ? 24
+                                                        : 20,
                                                 color: Colors.white,
                                               ),
                                             ),
@@ -195,7 +194,7 @@ class Button3dView extends GetView<Button3dController> {
           width: 100,
           height: 50,
           decoration: BoxDecoration(
-              color: Colors.blue.shade700,
+              color: Colors.grey.shade700,
               borderRadius: BorderRadius.circular(100)),
           child: Stack(
             children: [
@@ -219,7 +218,7 @@ class Button3dView extends GetView<Button3dController> {
               Container(
                 margin: EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Colors.blue.shade900,
+                    color: Colors.grey.shade900,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black,

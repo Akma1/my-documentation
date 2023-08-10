@@ -36,64 +36,56 @@ class HomeView extends GetView<HomeController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BouncyButton(
-                  onPressed: () {
-                    //
-                    Get.toNamed(Routes.REELS);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRect(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                        child: Container(
-                          width: Get.width,
-                          height: 60.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Colors.grey.shade200.withOpacity(0.5),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Reels',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                buildButtonMenu(
+                  onPressed: () => Get.toNamed(Routes.REELS),
+                  title: 'Reels',
                 ),
-                BouncyButton(
-                  onPressed: () {
-                    //
-                    Get.toNamed(Routes.BUTTON_3D);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRect(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                        child: Container(
-                          width: Get.width,
-                          height: 60.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Colors.grey.shade200.withOpacity(0.5),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Button 3D',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                buildButtonMenu(
+                  onPressed: () => Get.toNamed(Routes.BUTTON_3D),
+                  title: 'Button 3D',
+                ),
+                buildButtonMenu(
+                  onPressed: () => Get.toNamed(Routes.DRIFT_DOCUMENTATION),
+                  title: 'Flutter Drift',
+                ),
+                buildButtonMenu(
+                  onPressed: () => Get.toNamed(Routes.EXPANDABLE_BOTTOM_SHEET),
+                  title: 'Expandable Bottom Sheet',
                 ),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  BouncyButton buildButtonMenu({
+    final Function()? onPressed,
+    final String? title,
+  }) {
+    return BouncyButton(
+      onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+            child: Container(
+              width: Get.width,
+              height: 60.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.grey.shade200.withOpacity(0.5),
+              ),
+              child: Center(
+                child: Text(
+                  title ?? 'title',
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
