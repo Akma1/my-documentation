@@ -8,6 +8,8 @@ abstract class Routes {
   static const BUTTON_3D = _Paths.BUTTON_3D;
   static const DRIFT_DOCUMENTATION = _Paths.DRIFT_DOCUMENTATION;
   static const EXPANDABLE_BOTTOM_SHEET = _Paths.EXPANDABLE_BOTTOM_SHEET;
+  static const VIEWS_DATABASE =
+      _Paths.DRIFT_DOCUMENTATION + _Paths.VIEWS_DATABASE;
 }
 
 abstract class _Paths {
@@ -17,4 +19,5 @@ abstract class _Paths {
   static const BUTTON_3D = '/button-3d';
   static const DRIFT_DOCUMENTATION = '/drift-documentation';
   static const EXPANDABLE_BOTTOM_SHEET = '/expandable-bottom-sheet';
+  static const VIEWS_DATABASE = '/views-database';
 }

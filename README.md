@@ -14,3 +14,20 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+Table 
+1. categories
+    - id
+    - name
+    - created_at
+    - updated_at
+    - deleted_at
+
+2.  transaction
+    - id
+    - name
+    - category_id
+    - amount
+    - created_at
+    - updated_at
+    - deleted_at
