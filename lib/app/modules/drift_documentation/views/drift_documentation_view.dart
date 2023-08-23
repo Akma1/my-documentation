@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:my_documentation/app/routes/app_pages.dart';
+import 'package:my_documentation/app/widgets/3d_button.dart';
 
 import '../controllers/drift_documentation_controller.dart';
 
@@ -27,7 +28,43 @@ class DriftDocumentationView extends GetView<DriftDocumentationController> {
           )
         ],
       ),
-      body: Container(),
+      body: Container(
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(),
+        child: Column(
+          children: [
+            TextFormField(
+              controller: controller.nameTextCt.value,
+              cursorColor: Colors.white,
+              decoration: InputDecoration(
+                isDense: true,
+                label: const Text(
+                  'Nama',
+                  style: TextStyle(color: Colors.white),
+                ),
+                labelStyle: const TextStyle(color: Colors.white),
+                border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: () => controller.handleInsertButton(),
+              child: const Text('insert'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

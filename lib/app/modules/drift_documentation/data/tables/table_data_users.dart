@@ -1,12 +1,12 @@
 import 'package:drift/drift.dart';
 
-class TableUsers extends Table {
+class DataUsers extends Table {
   @override
   Set<Column> get primaryKey => {id};
 
   //photo: "1"
   @JsonKey('id')
-  IntColumn get id => integer().named('id').autoIncrement().nullable()();
+  IntColumn get id => integer().named('id').nullable()();
 
   //photo: "username"
   @JsonKey('name')

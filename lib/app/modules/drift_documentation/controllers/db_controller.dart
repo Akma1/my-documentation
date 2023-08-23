@@ -1,23 +1,30 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:drift/drift.dart';
-import 'package:my_documentation/app/modules/drift_documentation/data/tables/table_users.dart';
 import 'package:path/path.dart' as p;
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../data/tables/schedules.dart';
+import '../data/tables/table_data_users.dart';
+import '../data/daos/dao_users.dart';
+import '../data/daos/schedules_dao.dart';
+
 part 'db_controller.g.dart';
 
-const List<Type> daoList = [];
+const List<Type> daoList = [
+  UsersDao,
+  SchedulesDao,
+];
 
 const List<Type> tableList = [
-  TableUsers,
+  DataUsers,
+  Schedules,
 ];
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     final dbFolder = await getApplicationDocumentsDirectory();
-    final file = File(p.join(dbFolder.path, 'db.sqlite'));
+    final file = File(p.join(dbFolder.path, 'local.db_controller'));
 
     return NativeDatabase.createInBackground(file);
   });
@@ -25,34 +32,8 @@ LazyDatabase _openConnection() {
 
 @DriftDatabase(tables: tableList, daos: daoList)
 class AppDb extends _$AppDb {
-  int version = 1;
   AppDb() : super(_openConnection());
-  @override
-  MigrationStrategy get migration {
-    return MigrationStrategy(
-      onCreate: (Migrator m) async {
-        await m.createAll();
-      },
-      onUpgrade: (Migrator m, int from, int to) async {
-        if (from != version) {
-          for (final table in allTables) {
-            await m.deleteTable(table.actualTableName);
-          }
-          await m.createAll().then((value) {});
-        }
-      },
-    );
-  }
 
   @override
-  int get schemaVersion => version;
-
-  Future<void> truncateAll() async {
-    var res = await transaction(() async {
-      for (final table in allTables) {
-        await delete(table).go();
-      }
-    });
-    log('res $res');
-  }
+  int get schemaVersion => 1;
 }

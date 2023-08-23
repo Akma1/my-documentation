@@ -8,6 +8,8 @@ import '../modules/drift_documentation/views_database/bindings/views_database_bi
 import '../modules/drift_documentation/views_database/views/views_database_view.dart';
 import '../modules/expandable_bottom_sheet/bindings/expandable_bottom_sheet_binding.dart';
 import '../modules/expandable_bottom_sheet/views/expandable_bottom_sheet_view.dart';
+import '../modules/food_app/bindings/food_app_binding.dart';
+import '../modules/food_app/views/food_app_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/reels/bindings/reels_binding.dart';
@@ -52,6 +54,11 @@ class AppPages {
       name: _Paths.EXPANDABLE_BOTTOM_SHEET,
       page: () => const ExpandableBottomSheetView(),
       binding: ExpandableBottomSheetBinding(),
+    ),
+    GetPage(
+      name: _Paths.FOOD_APP,
+      page: () => const FoodAppView(),
+      binding: FoodAppBinding(),
     ),
   ];
 }

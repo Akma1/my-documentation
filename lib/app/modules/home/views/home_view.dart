@@ -52,6 +52,10 @@ class HomeView extends GetView<HomeController> {
                   onPressed: () => Get.toNamed(Routes.EXPANDABLE_BOTTOM_SHEET),
                   title: 'Expandable Bottom Sheet',
                 ),
+                buildButtonMenu(
+                  onPressed: () => Get.toNamed(Routes.FOOD_APP),
+                  title: 'Food App',
+                ),
               ],
             ),
           ),

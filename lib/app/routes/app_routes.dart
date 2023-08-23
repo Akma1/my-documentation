@@ -10,6 +10,7 @@ abstract class Routes {
   static const EXPANDABLE_BOTTOM_SHEET = _Paths.EXPANDABLE_BOTTOM_SHEET;
   static const VIEWS_DATABASE =
       _Paths.DRIFT_DOCUMENTATION + _Paths.VIEWS_DATABASE;
+  static const FOOD_APP = _Paths.FOOD_APP;
 }
 
 abstract class _Paths {
@@ -20,4 +21,5 @@ abstract class _Paths {
   static const DRIFT_DOCUMENTATION = '/drift-documentation';
   static const EXPANDABLE_BOTTOM_SHEET = '/expandable-bottom-sheet';
   static const VIEWS_DATABASE = '/views-database';
+  static const FOOD_APP = '/food-app';
 }

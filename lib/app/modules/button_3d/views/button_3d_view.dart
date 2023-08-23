@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_documentation/app/widgets/bouncy_button.dart';
 
+import '../../../widgets/3d_button.dart';
 import '../controllers/button_3d_controller.dart';
 
 class Button3dView extends GetView<Button3dController> {
@@ -46,6 +47,9 @@ class Button3dView extends GetView<Button3dController> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Button3DWidget(
+                    onPressed: () {},
+                  ),
                   Center(
                     child: Container(
                       height: 70,

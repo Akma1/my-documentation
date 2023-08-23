@@ -3,6 +3,6 @@
 part of 'dao_users.dart';
 
 // ignore_for_file: type=lint
-mixin _$SamplingsDaoMixin on DatabaseAccessor<AppDb> {
-  $TableUsersTable get tableUsers => attachedDatabase.tableUsers;
+mixin _$UsersDaoMixin on DatabaseAccessor<AppDb> {
+  $DataUsersTable get dataUsers => attachedDatabase.dataUsers;
 }
