@@ -56,6 +56,10 @@ class HomeView extends GetView<HomeController> {
                   onPressed: () => Get.toNamed(Routes.FOOD_APP),
                   title: 'Food App',
                 ),
+                buildButtonMenu(
+                  onPressed: () => Get.toNamed(Routes.CALENDAR),
+                  title: 'Calendar',
+                ),
               ],
             ),
           ),
@@ -72,7 +76,8 @@ class HomeView extends GetView<HomeController> {
       onPressed: onPressed,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ClipRect(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
             child: Container(
@@ -85,6 +90,7 @@ class HomeView extends GetView<HomeController> {
               child: Center(
                 child: Text(
                   title ?? 'title',
+                  style: TextStyle(),
                 ),
               ),
             ),

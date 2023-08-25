@@ -11,6 +11,7 @@ abstract class Routes {
   static const VIEWS_DATABASE =
       _Paths.DRIFT_DOCUMENTATION + _Paths.VIEWS_DATABASE;
   static const FOOD_APP = _Paths.FOOD_APP;
+  static const CALENDAR = _Paths.CALENDAR;
 }
 
 abstract class _Paths {
@@ -22,4 +23,5 @@ abstract class _Paths {
   static const EXPANDABLE_BOTTOM_SHEET = '/expandable-bottom-sheet';
   static const VIEWS_DATABASE = '/views-database';
   static const FOOD_APP = '/food-app';
+  static const CALENDAR = '/calendar';
 }

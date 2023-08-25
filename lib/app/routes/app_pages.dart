@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/button_3d/bindings/button_3d_binding.dart';
 import '../modules/button_3d/views/button_3d_view.dart';
+import '../modules/calendar/bindings/calendar_binding.dart';
+import '../modules/calendar/views/calendar_view.dart';
 import '../modules/drift_documentation/bindings/drift_documentation_binding.dart';
 import '../modules/drift_documentation/views/drift_documentation_view.dart';
 import '../modules/drift_documentation/views_database/bindings/views_database_binding.dart';
@@ -59,6 +61,11 @@ class AppPages {
       name: _Paths.FOOD_APP,
       page: () => const FoodAppView(),
       binding: FoodAppBinding(),
+    ),
+    GetPage(
+      name: _Paths.CALENDAR,
+      page: () => const CalendarView(),
+      binding: CalendarBinding(),
     ),
   ];
 }
