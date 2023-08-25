@@ -15,7 +15,7 @@ class Button3DWidget extends StatefulWidget {
 class _Button3DWidgetState extends State<Button3DWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
-  late Animation<bool> _scaleAnimation;
+  late Animation<bool> scaleAnimation;
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _Button3DWidgetState extends State<Button3DWidget>
       duration: const Duration(milliseconds: 200),
       vsync: this,
     );
-    _scaleAnimation = Tween<bool>(begin: true, end: false).animate(
+    scaleAnimation = Tween<bool>(begin: true, end: false).animate(
       CurvedAnimation(
         parent: _animationController,
         curve: Curves.easeInOut,
