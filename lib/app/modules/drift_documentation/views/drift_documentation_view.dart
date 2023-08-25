@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:my_documentation/app/routes/app_pages.dart';
-import 'package:my_documentation/app/widgets/3d_button.dart';
 
 import '../controllers/drift_documentation_controller.dart';
 
@@ -23,7 +22,7 @@ class DriftDocumentationView extends GetView<DriftDocumentationController> {
               onTap: () {
                 Get.toNamed(Routes.VIEWS_DATABASE);
               },
-              child: Icon(Icons.data_object_sharp),
+              child: const Icon(Icons.data_object_sharp),
             ),
           )
         ],
