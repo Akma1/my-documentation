@@ -19,14 +19,43 @@ class FoodAppView extends GetView<FoodAppController> {
             Column(
               children: [
                 controller.isLoading.value
-                    ? const Center(
-                        child: CircularProgressIndicator(),
+                    ? const Expanded(
+                        child: Center(
+                          child: CircularProgressIndicator(),
+                        ),
                       )
                     : ListView.builder(
                         shrinkWrap: true,
                         itemCount: controller.data.value.datas!.length,
                         itemBuilder: (context, index) {
-                          return Text('data');
+                          final data = controller.data.value.datas?[index];
+                          return Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade200,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Image.network(
+                                      '${data?.gambar}',
+                                      width: 50,
+                                      height: 50,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text('${data?.nama}'),
+                                ],
+                              ),
+                            ),
+                          );
                         },
                       ),
               ],
