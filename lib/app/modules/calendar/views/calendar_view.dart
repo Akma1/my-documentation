@@ -45,9 +45,9 @@ class _MyAppState extends State<MyApp> {
           controller: itemScrollController,
           itemCount: testArray.length,
           scrollDirection: Axis.horizontal,
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           padding: EdgeInsets.zero,
-          itemBuilder: (context, i) => Text(''),
+          itemBuilder: (context, i) => const Text(''),
           // IteSm(
           //   testArray[i],
           //   testArray[i] == 'item5' ? true : false,
@@ -62,8 +62,7 @@ class _MyAppState extends State<MyApp> {
           //   },
           // ),
           // itemScrollController: itemScrollController,
-          separatorBuilder: (ctx, i) =>
-              Padding(padding: EdgeInsets.symmetric(horizontal: 6)),
+          separatorBuilder: (ctx, i) => Padding(padding: EdgeInsets.symmetric(horizontal: 6)),
         )));
   }
 }
@@ -113,8 +112,7 @@ class _MyCalendarState extends State<MyCalendar> {
                 // outsideWeekendStyle: TextStyle(color: Colors.grey),
                 ),
             headerStyle: HeaderStyle(
-              formatButtonTextStyle:
-                  TextStyle().copyWith(color: Colors.white, fontSize: 15.0),
+              formatButtonTextStyle: TextStyle().copyWith(color: Colors.white, fontSize: 15.0),
               formatButtonDecoration: BoxDecoration(
                 color: Colors.deepOrange,
                 borderRadius: BorderRadius.circular(16.0),

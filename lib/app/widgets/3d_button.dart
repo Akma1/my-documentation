@@ -1,19 +1,22 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class Button3DWidget extends StatefulWidget {
   final VoidCallback? onPressed;
+  final VoidCallback? onTap;
 
   const Button3DWidget({
     super.key,
     this.onPressed,
+    this.onTap,
   });
 
   @override
   State<Button3DWidget> createState() => _Button3DWidgetState();
 }
 
-class _Button3DWidgetState extends State<Button3DWidget>
-    with SingleTickerProviderStateMixin {
+class _Button3DWidgetState extends State<Button3DWidget> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<bool> scaleAnimation;
 
@@ -35,7 +38,7 @@ class _Button3DWidgetState extends State<Button3DWidget>
   var isPressed = false;
   void _handleTapDown(TapDownDetails details) {
     setState(() {
-      print('Tap Down');
+      log('Tap Down');
       const Duration(seconds: 1);
       isPressed = true;
     });
@@ -43,19 +46,21 @@ class _Button3DWidgetState extends State<Button3DWidget>
 
   void _handleTapUp(TapUpDetails details) {
     setState(() {
-      print('Tap Up');
+      log('Tap Up');
       const Duration(seconds: 1);
+      widget.onPressed!();
       isPressed = false;
     });
   }
 
   void _handleTapCancel() {
-    print('Tap Cancle');
+    log('Tap Cancle');
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: widget.onTap,
       onTapDown: widget.onPressed != null ? _handleTapDown : null,
       onTapUp: widget.onPressed != null ? _handleTapUp : null,
       onTapCancel: widget.onPressed != null ? _handleTapCancel : null,
@@ -71,7 +76,7 @@ class _Button3DWidgetState extends State<Button3DWidget>
                   ? [
                       BoxShadow(
                           color: Colors.grey.shade200,
-                          offset: Offset(-4, -4),
+                          offset: const Offset(-4, -4),
                           spreadRadius: -6,
                           blurRadius: 6)
                     ]

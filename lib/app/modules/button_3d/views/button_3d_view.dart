@@ -48,7 +48,14 @@ class Button3dView extends GetView<Button3dController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Button3DWidget(
-                    onPressed: () {},
+                    onPressed: () {
+                      print('object 1');
+                    },
+                  ),
+                  Button3DWidget(
+                    onTap: () {
+                      print('object 2');
+                    },
                   ),
                   Center(
                     child: Container(
@@ -103,8 +110,7 @@ class Button3dView extends GetView<Button3dController> {
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'Button',
@@ -120,16 +126,12 @@ class Button3dView extends GetView<Button3dController> {
                                             height: 30,
                                             decoration: BoxDecoration(
                                               color: Colors.grey.shade900,
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              boxShadow: controller
-                                                      .isPressed.isFalse
+                                              borderRadius: BorderRadius.circular(30),
+                                              boxShadow: controller.isPressed.isFalse
                                                   ? [
                                                       BoxShadow(
-                                                          color: Colors
-                                                              .grey.shade200,
-                                                          offset:
-                                                              Offset(-4, -4),
+                                                          color: Colors.grey.shade200,
+                                                          offset: Offset(-4, -4),
                                                           spreadRadius: -6,
                                                           blurRadius: 6)
                                                     ]
@@ -141,10 +143,8 @@ class Button3dView extends GetView<Button3dController> {
                                             height: 30,
                                             decoration: BoxDecoration(
                                               color: Colors.grey.shade900,
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              boxShadow: controller
-                                                      .isPressed.isFalse
+                                              borderRadius: BorderRadius.circular(30),
+                                              boxShadow: controller.isPressed.isFalse
                                                   ? const [
                                                       BoxShadow(
                                                           color: Colors.black,
@@ -159,10 +159,7 @@ class Button3dView extends GetView<Button3dController> {
                                             child: Center(
                                               child: Icon(
                                                 Icons.play_arrow_rounded,
-                                                size:
-                                                    controller.isPressed.isFalse
-                                                        ? 24
-                                                        : 20,
+                                                size: controller.isPressed.isFalse ? 24 : 20,
                                                 color: Colors.white,
                                               ),
                                             ),
@@ -197,9 +194,8 @@ class Button3dView extends GetView<Button3dController> {
         child: Container(
           width: 100,
           height: 50,
-          decoration: BoxDecoration(
-              color: Colors.grey.shade700,
-              borderRadius: BorderRadius.circular(100)),
+          decoration:
+              BoxDecoration(color: Colors.grey.shade700, borderRadius: BorderRadius.circular(100)),
           child: Stack(
             children: [
               Container(

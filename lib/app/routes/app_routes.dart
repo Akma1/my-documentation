@@ -12,6 +12,8 @@ abstract class Routes {
       _Paths.DRIFT_DOCUMENTATION + _Paths.VIEWS_DATABASE;
   static const FOOD_APP = _Paths.FOOD_APP;
   static const CALENDAR = _Paths.CALENDAR;
+  static const GAME_WITH_FLAME = _Paths.GAME_WITH_FLAME;
+  static const FIREBASE = _Paths.FIREBASE;
 }
 
 abstract class _Paths {
@@ -24,4 +26,6 @@ abstract class _Paths {
   static const VIEWS_DATABASE = '/views-database';
   static const FOOD_APP = '/food-app';
   static const CALENDAR = '/calendar';
+  static const GAME_WITH_FLAME = '/game-with-flame';
+  static const FIREBASE = '/firebase';
 }

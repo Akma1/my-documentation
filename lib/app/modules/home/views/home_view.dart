@@ -14,7 +14,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Documentations'),
+        title: const Text('My Documentations'),
         // Set background color to transparent
         backgroundColor: Colors.transparent,
         // Remove elevation to have no shadow on the app bar
@@ -24,10 +24,9 @@ class HomeView extends GetView<HomeController> {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image:
-                    AssetImage('assets/big-hero.jpg'), // Your background image
+                image: AssetImage('assets/big-hero.jpg'), // Your background image
                 fit: BoxFit.cover,
               ),
             ),
@@ -59,6 +58,14 @@ class HomeView extends GetView<HomeController> {
                 buildButtonMenu(
                   onPressed: () => Get.toNamed(Routes.CALENDAR),
                   title: 'Calendar',
+                ),
+                buildButtonMenu(
+                  onPressed: () => Get.toNamed(Routes.GAME_WITH_FLAME),
+                  title: 'Game',
+                ),
+                buildButtonMenu(
+                  onPressed: () => Get.toNamed(Routes.FIREBASE),
+                  title: 'Firebase',
                 ),
               ],
             ),

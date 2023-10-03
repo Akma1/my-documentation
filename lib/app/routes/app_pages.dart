@@ -10,8 +10,12 @@ import '../modules/drift_documentation/views_database/bindings/views_database_bi
 import '../modules/drift_documentation/views_database/views/views_database_view.dart';
 import '../modules/expandable_bottom_sheet/bindings/expandable_bottom_sheet_binding.dart';
 import '../modules/expandable_bottom_sheet/views/expandable_bottom_sheet_view.dart';
+import '../modules/firebase/bindings/firebase_binding.dart';
+import '../modules/firebase/views/firebase_view.dart';
 import '../modules/food_app/bindings/food_app_binding.dart';
 import '../modules/food_app/views/food_app_view.dart';
+import '../modules/game_with_flame/bindings/game_with_flame_binding.dart';
+import '../modules/game_with_flame/views/game_with_flame_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/reels/bindings/reels_binding.dart';
@@ -66,6 +70,16 @@ class AppPages {
       name: _Paths.CALENDAR,
       page: () => const CalendarView(),
       binding: CalendarBinding(),
+    ),
+    GetPage(
+      name: _Paths.GAME_WITH_FLAME,
+      page: () => const GameWithFlameView(),
+      binding: GameWithFlameBinding(),
+    ),
+    GetPage(
+      name: _Paths.FIREBASE,
+      page: () => const FirebaseView(),
+      binding: FirebaseBinding(),
     ),
   ];
 }
