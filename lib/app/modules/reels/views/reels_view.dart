@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
-import 'package:my_documentation/app/modules/reels/views/vdo.dart';
 import 'package:video_player/video_player.dart';
 
 import '../controllers/reels_controller.dart';
