@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_documentation/app/widgets/bouncy_button.dart';
 
-import '../../../widgets/3d_button.dart';
+import '../widget/my_3d_button.dart';
 import '../controllers/button_3d_controller.dart';
 
 class Button3dView extends GetView<Button3dController> {
@@ -47,14 +47,10 @@ class Button3dView extends GetView<Button3dController> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Button3DWidget(
+                  My3DButton(
+                    // btnColor: Colors.amber,
                     onPressed: () {
                       print('object 1');
-                    },
-                  ),
-                  Button3DWidget(
-                    onTap: () {
-                      print('object 2');
                     },
                   ),
                   Center(
@@ -84,7 +80,7 @@ class Button3dView extends GetView<Button3dController> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.all(10),
+                            margin: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                                 color: Colors.grey.shade900,
                                 gradient: LinearGradient(

@@ -2,21 +2,31 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-class Button3DWidget extends StatefulWidget {
+class My3DButton extends StatefulWidget {
   final VoidCallback? onPressed;
   final VoidCallback? onTap;
+  final Color? btnColor;
+  final Color? colorStart;
+  final Color? colorEnd;
+  final IconData? icon;
+  final Color? iconColor;
 
-  const Button3DWidget({
+  const My3DButton({
     super.key,
     this.onPressed,
     this.onTap,
+    this.btnColor,
+    this.colorStart,
+    this.colorEnd,
+    this.icon,
+    this.iconColor,
   });
 
   @override
-  State<Button3DWidget> createState() => _Button3DWidgetState();
+  State<My3DButton> createState() => _My3DButtonState();
 }
 
-class _Button3DWidgetState extends State<Button3DWidget> with SingleTickerProviderStateMixin {
+class _My3DButtonState extends State<My3DButton> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<bool> scaleAnimation;
 
@@ -70,15 +80,16 @@ class _Button3DWidgetState extends State<Button3DWidget> with SingleTickerProvid
             width: 30,
             height: 30,
             decoration: BoxDecoration(
-              color: Colors.grey.shade900,
+              color: widget.btnColor ?? Colors.grey.shade900,
               borderRadius: BorderRadius.circular(30),
               boxShadow: isPressed == false
                   ? [
                       BoxShadow(
-                          color: Colors.grey.shade200,
-                          offset: const Offset(-4, -4),
-                          spreadRadius: -6,
-                          blurRadius: 6)
+                        color: widget.colorStart ?? Colors.grey.shade200,
+                        offset: const Offset(-4, -4),
+                        spreadRadius: -6,
+                        blurRadius: 6,
+                      )
                     ]
                   : null,
             ),
@@ -87,25 +98,24 @@ class _Button3DWidgetState extends State<Button3DWidget> with SingleTickerProvid
             width: 30,
             height: 30,
             decoration: BoxDecoration(
-              color: Colors.grey.shade900,
+              color: widget.btnColor ?? Colors.grey.shade900,
               borderRadius: BorderRadius.circular(30),
               boxShadow: isPressed == false
-                  ? const [
+                  ? [
                       BoxShadow(
-                          color: Colors.black,
-                          // color: Color.fromARGB(
-                          //     255, 0, 56, 101),
-                          offset: Offset(4, 4),
-                          spreadRadius: 1,
-                          blurRadius: 8)
+                        color: widget.colorEnd ?? Colors.black,
+                        offset: const Offset(4, 4),
+                        spreadRadius: 1,
+                        blurRadius: 8,
+                      )
                     ]
                   : null,
             ),
             child: Center(
               child: Icon(
-                Icons.play_arrow_rounded,
+                widget.icon ?? Icons.play_arrow_rounded,
                 size: isPressed == false ? 24 : 20,
-                color: Colors.white,
+                color: widget.iconColor ?? Colors.white,
               ),
             ),
           ),
