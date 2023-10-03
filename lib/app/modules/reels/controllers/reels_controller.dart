@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
@@ -15,19 +17,23 @@ class ReelsController extends GetxController {
   VideoPlayerController? videoController;
 
   @override
-  void onInit() {
-    super.onInit();
+  void onInit() async {
     isExpanded = List.generate(lengthVideo.length, (index) => false.obs).obs;
     videoController = VideoPlayerController.asset(
-      'assets/video/pexels-micheile-henderson-6992404 (1080p).mp4',
+      'assets/pexels-micheile-henderson-6821997.mp4',
     )
       ..play()
+      ..initialize()
       ..setLooping(true);
+    log('VIDEO REPORT : ${videoController!.dataSource}');
     // Initialize the video controller and update the state when done
-    videoController!.initialize().then((_) {
-      update();
-    });
+    // videoController!.initialize().then((_) {
+    //   update();
+    // });
+    super.onInit();
   }
+
+  bool get isPlaying => videoController!.value.isPlaying;
 
   @override
   void onClose() {
