@@ -1,10 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:my_documentation/app/routes/app_pages.dart';
 import 'package:my_documentation/app/widgets/bouncy_button.dart';
+import 'package:my_documentation/app/widgets/my_shimmer.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -15,62 +13,45 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Documentations'),
-        // Set background color to transparent
         backgroundColor: Colors.transparent,
-        // Remove elevation to have no shadow on the app bar
         elevation: 0,
       ),
       extendBodyBehindAppBar: true,
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/big-hero.jpg'), // Your background image
-                fit: BoxFit.cover,
+      body: Obx(
+        () => Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/big-hero.jpg'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                buildButtonMenu(
-                  onPressed: () => Get.toNamed(Routes.REELS),
-                  title: 'Reels',
-                ),
-                buildButtonMenu(
-                  onPressed: () => Get.toNamed(Routes.BUTTON_3D),
-                  title: 'Button 3D',
-                ),
-                buildButtonMenu(
-                  onPressed: () => Get.toNamed(Routes.DRIFT_DOCUMENTATION),
-                  title: 'Flutter Drift',
-                ),
-                buildButtonMenu(
-                  onPressed: () => Get.toNamed(Routes.EXPANDABLE_BOTTOM_SHEET),
-                  title: 'Expandable Bottom Sheet',
-                ),
-                buildButtonMenu(
-                  onPressed: () => Get.toNamed(Routes.FOOD_APP),
-                  title: 'Food App',
-                ),
-                buildButtonMenu(
-                  onPressed: () => Get.toNamed(Routes.CALENDAR),
-                  title: 'Calendar',
-                ),
-                buildButtonMenu(
-                  onPressed: () => Get.toNamed(Routes.GAME_WITH_FLAME),
-                  title: 'Game',
-                ),
-                buildButtonMenu(
-                  onPressed: () => Get.toNamed(Routes.FIREBASE),
-                  title: 'Firebase',
-                ),
-              ],
-            ),
-          ),
-        ],
+            (controller.isLoading.isTrue)
+                ? ListView.builder(
+                    physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+                        child: MyShimmer.shimmerListCard(),
+                      );
+                    },
+                  )
+                : ListView.builder(
+                    physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                    itemCount: controller.listMainmenu.length,
+                    itemBuilder: (context, index) {
+                      final data = controller.listMainmenu[index];
+                      return buildButtonMenu(
+                        title: data.title,
+                        onPressed: () => data.onPressed(),
+                      );
+                    },
+                  ),
+          ],
+        ),
       ),
     );
   }

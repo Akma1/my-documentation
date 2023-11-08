@@ -14,6 +14,8 @@ abstract class Routes {
   static const CALENDAR = _Paths.CALENDAR;
   static const GAME_WITH_FLAME = _Paths.GAME_WITH_FLAME;
   static const FIREBASE = _Paths.FIREBASE;
+  static const GRID_VIEW = _Paths.GRID_VIEW;
+  static const FL_CHART = _Paths.FL_CHART;
 }
 
 abstract class _Paths {
@@ -28,4 +30,6 @@ abstract class _Paths {
   static const CALENDAR = '/calendar';
   static const GAME_WITH_FLAME = '/game-with-flame';
   static const FIREBASE = '/firebase';
+  static const GRID_VIEW = '/grid-view';
+  static const FL_CHART = '/fl-chart';
 }

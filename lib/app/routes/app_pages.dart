@@ -12,10 +12,14 @@ import '../modules/expandable_bottom_sheet/bindings/expandable_bottom_sheet_bind
 import '../modules/expandable_bottom_sheet/views/expandable_bottom_sheet_view.dart';
 import '../modules/firebase/bindings/firebase_binding.dart';
 import '../modules/firebase/views/firebase_view.dart';
+import '../modules/fl_chart/bindings/fl_chart_binding.dart';
+import '../modules/fl_chart/views/fl_chart_view.dart';
 import '../modules/food_app/bindings/food_app_binding.dart';
 import '../modules/food_app/views/food_app_view.dart';
 import '../modules/game_with_flame/bindings/game_with_flame_binding.dart';
 import '../modules/game_with_flame/views/game_with_flame_view.dart';
+import '../modules/grid_view/bindings/grid_view_binding.dart';
+import '../modules/grid_view/views/grid_view_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/reels/bindings/reels_binding.dart';
@@ -80,6 +84,16 @@ class AppPages {
       name: _Paths.FIREBASE,
       page: () => const FirebaseView(),
       binding: FirebaseBinding(),
+    ),
+    GetPage(
+      name: _Paths.GRID_VIEW,
+      page: () => const GridViewView(),
+      binding: GridViewBinding(),
+    ),
+    GetPage(
+      name: _Paths.FL_CHART,
+      page: () => const FlChartView(),
+      binding: FlChartBinding(),
     ),
   ];
 }
