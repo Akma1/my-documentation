@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FadeAndBounceAnimation extends StatefulWidget {
   const FadeAndBounceAnimation({super.key});
@@ -22,11 +23,11 @@ class _FadeAndBounceAnimationState extends State<FadeAndBounceAnimation> with Si
     );
 
     _fadeAnimation = Tween(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller!, curve: Interval(0.0, 0.6, curve: Curves.easeOut)),
+      CurvedAnimation(parent: _controller!, curve: const Interval(0.0, 0.6, curve: Curves.easeOut)),
     );
 
     _bounceAnimation = Tween(begin: 0.0, end: 300.0).animate(
-      CurvedAnimation(parent: _controller!, curve: Interval(0.6, 1.0, curve: Curves.bounceOut)),
+      CurvedAnimation(parent: _controller!, curve: const Interval(0.6, 1.0, curve: Curves.bounceOut)),
     );
 
     _controller!.forward();
@@ -42,7 +43,10 @@ class _FadeAndBounceAnimationState extends State<FadeAndBounceAnimation> with Si
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fade and Bounce Animation'),
+        title: Text(
+          'Fade and Bounce Animation',
+          style: Get.textTheme.labelMedium?.copyWith(),
+        ),
       ),
       body: Center(
         child: AnimatedBuilder(
